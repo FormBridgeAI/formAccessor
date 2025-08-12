@@ -1,0 +1,140 @@
+{
+  "fields": [
+    {
+      "label": "Full Name",
+      "section": "Personal Information",
+      "type": "group",
+      "required": true,
+      "options": null,
+      "accessibility": "public",
+      "value": ""
+    },
+    {
+      "label": "First Name",
+      "section": "Personal Information",
+      "type": "text",
+      "required": true,
+      "options": null,
+      "accessibility": "public",
+      "value": "Youdahe"
+    },
+    {
+      "label": "Middle Name",
+      "section": "Personal Information",
+      "type": "text",
+      "required": false,
+      "options": null,
+      "accessibility": "public",
+      "value": ""
+    },
+    {
+      "label": "Last Name",
+      "section": "Personal Information",
+      "type": "text",
+      "required": true,
+      "options": null,
+      "accessibility": "public",
+      "value": "Asfaw"
+    },
+    {
+      "label": "Birth Date",
+      "section": "Personal Information",
+      "type": "group",
+      "required": true,
+      "options": null,
+      "accessibility": "public",
+      "value": ""
+    },
+    {
+      "label": "Month",
+      "section": "Personal Information",
+      "type": "select",
+      "required": true,
+      "options": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      "accessibility": "public",
+      "value": "April"
+    },
+    {
+      "label": "Day",
+      "section": "Personal Information",
+      "type": "number",
+      "required": true,
+      "options": {
+        "min": 1,
+        "max": 31
+      },
+      "accessibility": "public",
+      "value": "29"
+    },
+    {
+      "label": "Year",
+      "section": "Personal Information",
+      "type": "number",
+      "required": true,
+      "options": {
+        "min": 1900,
+        "max": 2023
+      },
+      "accessibility": "public",
+      "value": "2006"
+    },
+    {
+      "label": "Current Address",
+      "section": "Contact Information",
+      "type": "group",
+      "required": true,
+      "options": null,
+      "accessibility": "public",
+      "value": ""
+    },
+    {
+      "label": "Street Address",
+      "section": "Contact Information",
+      "type": "text",
+      "required": true,
+      "options": null,
+      "accessibility": "public",
+      "value": "800 college ave"
+    },
+    {
+      "label": "Street Address Line 2",
+      "section": "Contact Information",
+      "type": "text",
+      "required": false,
+      "options": null,
+      "accessibility": "public",
+      "value": ""
+    },
+    {
+      "label": "City",
+      "section": "Contact Information",
+      "type": "text",
+      "required": true,
+      "options": null,
+      "accessibility": "public",
+      "value": "Saint Peter"
+    },
+    {
+      "label": "State / Province",
+      "section": "Contact Information",
+      "type": "text",
+      "required": true,
+      "options": null,
+      "accessibility": "public",
+      "value": "MN"
+    }
+  ]
+}

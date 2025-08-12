@@ -346,7 +346,7 @@ def main():
     extractor = CoordinateExtractor(endpoint, key)
     
     # Test with the form in sample_data folder starting with 427
-    image_path = "../sample_data/427f2616120f6f11e4e772a84aaa5497e6d72b8235e7a72dac70adb59caaec5a.jpeg"
+    image_path = "/Users/asfawy/jsonTest/sample_data/simple-job-application-form-27d287c8e2b97cd3f175c12ef67426b2-classic.png"
     
     if os.path.exists(image_path):
         coordinates = extractor.get_coordinate_mapping(image_path)

@@ -32,14 +32,30 @@ def real_form_workflow(input_image_path: str, output_image_path: str = None):
     
     print("✅ Schema extracted successfully!")
     
-    # Step 2: Extract precise field coordinates using Azure analysis
-    print("\n📐 Step 2: Extracting precise field coordinates...")
-    extractor = CoordinateExtractor(endpoint, key)
-    field_coordinates = extractor.get_coordinate_mapping(input_image_path)
+    # Step 2: Check for existing manual coordinates or extract new ones
+    print("\n📐 Step 2: Checking for field coordinates...")
     
+    # First, check if manual coordinates already exist
+    coords_file = "field_coordinates.json"
+    if os.path.exists(coords_file):
+        try:
+            with open(coords_file, 'r') as f:
+                field_coordinates = json.load(f)
+            print(f"✅ Found existing manual coordinates: {len(field_coordinates)} fields")
+            print("📝 Using your manually adjusted coordinates (skipping automatic detection)")
+        except Exception as e:
+            print(f"⚠️  Error reading manual coordinates: {e}")
+            field_coordinates = {}
+    
+    # If no manual coordinates exist, run automatic detection
     if not field_coordinates:
-        print("⚠️  No field coordinates found. Will use estimated positioning.")
-        field_coordinates = {}
+        print("🔍 No manual coordinates found. Running automatic coordinate detection...")
+        extractor = CoordinateExtractor(endpoint, key)
+        field_coordinates = extractor.get_coordinate_mapping(input_image_path)
+        
+        if not field_coordinates:
+            print("⚠️  No field coordinates found. Will use estimated positioning.")
+            field_coordinates = {}
     
     # Step 3: Fill the form interactively (like your interview.py)
     print("\n✍️  Step 3: Filling out the form...")
@@ -104,6 +120,11 @@ def real_form_workflow(input_image_path: str, output_image_path: str = None):
             with open(coords_path, 'w') as f:
                 json.dump(field_coordinates, f, indent=2)
             print(f"📐 Field coordinates saved to: {coords_path}")
+            
+            # Add helpful message about manual editing
+            print("💡 Tip: You can manually edit this file to adjust field positions!")
+            print("   - Edit the X,Y coordinates in field_coordinates.json")
+            print("   - Run the workflow again to use your manual adjustments")
         
         return {
             'schema': schema,
@@ -123,7 +144,7 @@ def main():
     Main function to run the real workflow
     """
     # Use the form in sample_data folder starting with 427
-    input_image = "../sample_data/427f2616120f6f11e4e772a84aaa5497e6d72b8235e7a72dac70adb59caaec5a.jpeg"
+    input_image = "/Users/asfawy/jsonTest/sample_data/simple-job-application-form-27d287c8e2b97cd3f175c12ef67426b2-classic.png"
     
     # Check if the image exists
     if not os.path.exists(input_image):

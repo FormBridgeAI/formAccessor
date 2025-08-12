@@ -153,7 +153,8 @@ class FormImageGenerator:
                 self.draw.rectangle(bbox, outline='blue', width=1)
         
         # Save the filled image
-        self.original_image.save(output_path, 'JPEG', quality=95)
+        img_to_save = self.original_image.convert("RGB")
+        img_to_save.save(output_path, 'JPEG', quality=95)
         
         return output_path
     
@@ -215,7 +216,8 @@ class FormImageGenerator:
                     self.draw.text((x, y), value, fill='red', font=self.font)  # Red for unmatched fields
         
         # Save the filled image
-        self.original_image.save(output_path, 'JPEG', quality=95)
+        img_to_save = self.original_image.convert("RGB")
+        img_to_save.save(output_path, 'JPEG', quality=95)
         
         return output_path
     
@@ -279,7 +281,7 @@ def main():
     }
     
     # Initialize generator with your form image
-    image_path = "sample_data/input_form.jpeg"  # Update this path
+    image_path = "/Users/asfawy/jsonTest/sample_data/simple-job-application-form-27d287c8e2b97cd3f175c12ef67426b2-classic.png"  # Update this path
     
     if os.path.exists(image_path):
         generator = FormImageGenerator(image_path)
@@ -292,4 +294,4 @@ def main():
         print("Please update the image_path variable to point to your form image.")
 
 if __name__ == "__main__":
-    main() 
+    main()

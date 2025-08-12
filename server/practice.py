@@ -12,7 +12,7 @@ Client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 # Azure setup
 endpoint = 'https://aiformfilling-doc-ai.cognitiveservices.azure.com/'
-key = 'CTVcKut0gFiwLBPWB5dvHfJg33Lf3OCnPLmwHl0HmmYnrT1mh0pdJQQJ99BGACYeBjFXJ3w3AAALACOGVNkh'
+key = os.getenv('AZURE_KEY')
 client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 res = []
 def extract_and_generate_schema(file_path):
