@@ -73,8 +73,8 @@ This is a research prototype, but contributions and feedback are welcome. Please
 
 ## License
 
-[Add your license information here]
+[Gustavus Adolphus College]
 
 ---
 
-_Developed as part of AI & Accessibility Research at [Your Institution]_
+_Developed as part of AI & Accessibility Research at [Gustavus!]_
