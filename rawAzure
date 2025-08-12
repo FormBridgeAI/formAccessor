@@ -1,0 +1,1032 @@
+    },
+    {
+      "spans": [
+        {
+          "offset": 4620,
+          "length": 49
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            446,
+            1404,
+            818,
+            1404,
+            818,
+            1420,
+            446,
+            1420
+          ]
+        }
+      ],
+      "content": "3. The IRS tells the requester that you furnished"
+    },
+    {
+      "spans": [
+        {
+          "offset": 4670,
+          "length": 44
+        },
+        {
+          "offset": 4781,
+          "length": 99
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            818,
+            1404,
+            1201,
+            1404,
+            1202,
+            1447,
+            818,
+            1447
+          ]
+        }
+      ],
+      "content": "Criminal penalty for falsifying information.\nWillfully falsifying certifications or affirmations may subject you to criminal penalties including"
+    },
+    {
+      "spans": [
+        {
+          "offset": 4881,
+          "length": 21
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            72,
+            1422,
+            446,
+            1420,
+            446,
+            1447,
+            72,
+            1447
+          ]
+        }
+      ],
+      "content": "Foreign Corporations."
+    },
+    {
+      "spans": [
+        {
+          "offset": 4760,
+          "length": 20
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            446,
+            1420,
+            818,
+            1420,
+            818,
+            1447,
+            446,
+            1447
+          ]
+        }
+      ],
+      "content": "an incorrect TIN, or"
+    },
+    {
+      "spans": [
+        {
+          "offset": 4903,
+          "length": 4
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            72,
+            1447,
+            142,
+            1447,
+            142,
+            1471,
+            72,
+            1472
+          ]
+        }
+      ],
+      "content": "What"
+    },
+    {
+      "spans": [
+        {
+          "offset": 4908,
+          "length": 37
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            142,
+            1447,
+            446,
+            1447,
+            446,
+            1471,
+            142,
+            1471
+          ]
+        }
+      ],
+      "content": "is backup withholding? Persons making"
+    },
+    {
+      "spans": [
+        {
+          "offset": 4946,
+          "length": 44
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            446,
+            1447,
+            818,
+            1447,
+            818,
+            1471,
+            446,
+            1471
+          ]
+        }
+      ],
+      "content": "4. The IRS tells you that you are subject to"
+    },
+    {
+      "spans": [
+        {
+          "offset": 5030,
+          "length": 26
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            818,
+            1447,
+            1202,
+            1447,
+            1202,
+            1471,
+            818,
+            1471
+          ]
+        }
+      ],
+      "content": "fines and/or imprisonment."
+    },
+    {
+      "spans": [
+        {
+          "offset": 5057,
+          "length": 39
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            72,
+            1472,
+            446,
+            1471,
+            446,
+            1486,
+            72,
+            1487
+          ]
+        }
+      ],
+      "content": "certain payments to you must withhold a"
+    },
+    {
+      "spans": [
+        {
+          "offset": 4991,
+          "length": 38
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            446,
+            1471,
+            818,
+            1471,
+            818,
+            1486,
+            446,
+            1486
+          ]
+        }
+      ],
+      "content": "backup withholding because you did not"
+    },
+    {
+      "spans": [
+        {
+          "offset": 5197,
+          "length": 86
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            72,
+            1487,
+            446,
+            1486,
+            446,
+            1555,
+            71,
+            1555
+          ]
+        }
+      ],
+      "content": "designated percentage, currently 28% and pay to the IRS of such payments under certain"
+    },
+    {
+      "spans": [
+        {
+          "offset": 5097,
+          "length": 48
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            446,
+            1486,
+            818,
+            1486,
+            818,
+            1555,
+            446,
+            1555
+          ]
+        }
+      ],
+      "content": "report all your interest and dividends only), or"
+    },
+    {
+      "spans": [
+        {
+          "offset": 5146,
+          "length": 50
+        },
+        {
+          "offset": 5284,
+          "length": 95
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            818,
+            1486,
+            1202,
+            1483,
+            1203,
+            1555,
+            818,
+            1555
+          ]
+        }
+      ],
+      "content": "Misuse of TINs. If the requester discloses or uses\nTINs in violation of Federal law, the requester may be subject to civil and criminal penalties."
+    },
+    {
+      "spans": [
+        {
+          "offset": 5380,
+          "length": 22
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            42,
+            1603,
+            149,
+            1603,
+            149,
+            1617,
+            42,
+            1617
+          ]
+        }
+      ],
+      "role": "pageFooter",
+      "content": "them ar ko thebeast us"
+    },
+    {
+      "spans": [
+        {
+          "offset": 5403,
+          "length": 28
+        }
+      ],
+      "boundingRegions": [
+        {
+          "pageNumber": 1,
+          "polygon": [
+            965,
+            1599,
+            1207,
+            1599,
+            1207,
+            1619,
+            965,
+            1619
+          ]
+        }
+      ],
+      "role": "pageFooter",
+      "content": "Form MA- W-9 (Rev. May 2007)"
+    }
+  ],
+  "styles": [
+    {
+      "confidence": 0.95,
+      "spans": [
+        {
+          "offset": 823,
+          "length": 1
+        }
+      ],
+      "isHandwritten": true
+    },
+    {
+      "confidence": 0.9,
+      "spans": [
+        {
+          "offset": 833,
+          "length": 1
+        }
+      ],
+      "isHandwritten": true
+    }
+  ],
+  "contentFormat": "text",
+  "sections": [
+    {
+      "spans": [
+        {
+          "offset": 0,
+          "length": 523
+        },
+        {
+          "offset": 551,
+          "length": 12
+        },
+        {
+          "offset": 524,
+          "length": 26
+        },
+        {
+          "offset": 564,
+          "length": 24
+        },
+        {
+          "offset": 601,
+          "length": 12
+        },
+        {
+          "offset": 589,
+          "length": 11
+        },
+        {
+          "offset": 614,
+          "length": 2004
+        },
+        {
+          "offset": 2658,
+          "length": 41
+        },
+        {
+          "offset": 2619,
+          "length": 38
+        },
+        {
+          "offset": 2700,
+          "length": 90
+        },
+        {
+          "offset": 2839,
+          "length": 94
+        },
+        {
+          "offset": 2959,
+          "length": 51
+        },
+        {
+          "offset": 2791,
+          "length": 47
+        },
+        {
+          "offset": 2934,
+          "length": 24
+        },
+        {
+          "offset": 3054,
+          "length": 40
+        },
+        {
+          "offset": 3011,
+          "length": 42
+        },
+        {
+          "offset": 3144,
+          "length": 117
+        },
+        {
+          "offset": 3302,
+          "length": 37
+        },
+        {
+          "offset": 3262,
+          "length": 27
+        },
+        {
+          "offset": 3095,
+          "length": 48
+        },
+        {
+          "offset": 3290,
+          "length": 11
+        },
+        {
+          "offset": 3340,
+          "length": 95
+        },
+        {
+          "offset": 3446,
+          "length": 89
+        },
+        {
+          "offset": 3436,
+          "length": 9
+        },
+        {
+          "offset": 3536,
+          "length": 101
+        },
+        {
+          "offset": 3682,
+          "length": 150
+        },
+        {
+          "offset": 3879,
+          "length": 6
+        },
+        {
+          "offset": 3927,
+          "length": 5
+        },
+        {
+          "offset": 3886,
+          "length": 40
+        },
+        {
+          "offset": 3933,
+          "length": 20
+        },
+        {
+          "offset": 3638,
+          "length": 43
+        },
+        {
+          "offset": 3954,
+          "length": 85
+        },
+        {
+          "offset": 4086,
+          "length": 3
+        },
+        {
+          "offset": 4040,
+          "length": 45
+        },
+        {
+          "offset": 4090,
+          "length": 91
+        },
+        {
+          "offset": 3833,
+          "length": 45
+        },
+        {
+          "offset": 4182,
+          "length": 22
+        },
+        {
+          "offset": 4248,
+          "length": 187
+        },
+        {
+          "offset": 4205,
+          "length": 42
+        },
+        {
+          "offset": 4436,
+          "length": 183
+        },
+        {
+          "offset": 4715,
+          "length": 44
+        },
+        {
+          "offset": 4620,
+          "length": 94
+        },
+        {
+          "offset": 4781,
+          "length": 121
+        },
+        {
+          "offset": 4760,
+          "length": 20
+        },
+        {
+          "offset": 4903,
+          "length": 87
+        },
+        {
+          "offset": 5030,
+          "length": 66
+        },
+        {
+          "offset": 4991,
+          "length": 38
+        },
+        {
+          "offset": 5197,
+          "length": 86
+        },
+        {
+          "offset": 5097,
+          "length": 99
+        },
+        {
+          "offset": 5284,
+          "length": 95
+        }
+      ],
+      "elements": [
+        "/sections/1",
+        "/sections/2"
+      ]
+    },
+    {
+      "spans": [
+        {
+          "offset": 0,
+          "length": 58
+        }
+      ],
+      "elements": [
+        "/paragraphs/0"
+      ]
+    },
+    {
+      "spans": [
+        {
+          "offset": 59,
+          "length": 464
+        },
+        {
+          "offset": 551,
+          "length": 12
+        },
+        {
+          "offset": 524,
+          "length": 26
+        },
+        {
+          "offset": 564,
+          "length": 24
+        },
+        {
+          "offset": 601,
+          "length": 12
+        },
+        {
+          "offset": 589,
+          "length": 11
+        },
+        {
+          "offset": 614,
+          "length": 2004
+        },
+        {
+          "offset": 2658,
+          "length": 41
+        },
+        {
+          "offset": 2619,
+          "length": 38
+        },
+        {
+          "offset": 2700,
+          "length": 90
+        },
+        {
+          "offset": 2839,
+          "length": 94
+        },
+        {
+          "offset": 2959,
+          "length": 51
+        },
+        {
+          "offset": 2791,
+          "length": 47
+        },
+        {
+          "offset": 2934,
+          "length": 24
+        },
+        {
+          "offset": 3054,
+          "length": 40
+        },
+        {
+          "offset": 3011,
+          "length": 42
+        },
+        {
+          "offset": 3144,
+          "length": 117
+        },
+        {
+          "offset": 3302,
+          "length": 37
+        },
+        {
+          "offset": 3262,
+          "length": 27
+        },
+        {
+          "offset": 3095,
+          "length": 48
+        },
+        {
+          "offset": 3290,
+          "length": 11
+        },
+        {
+          "offset": 3340,
+          "length": 95
+        },
+        {
+          "offset": 3446,
+          "length": 89
+        },
+        {
+          "offset": 3436,
+          "length": 9
+        },
+        {
+          "offset": 3536,
+          "length": 101
+        },
+        {
+          "offset": 3682,
+          "length": 150
+        },
+        {
+          "offset": 3879,
+          "length": 6
+        },
+        {
+          "offset": 3927,
+          "length": 5
+        },
+        {
+          "offset": 3886,
+          "length": 40
+        },
+        {
+          "offset": 3933,
+          "length": 20
+        },
+        {
+          "offset": 3638,
+          "length": 43
+        },
+        {
+          "offset": 3954,
+          "length": 85
+        },
+        {
+          "offset": 4086,
+          "length": 3
+        },
+        {
+          "offset": 4040,
+          "length": 45
+        },
+        {
+          "offset": 4090,
+          "length": 91
+        },
+        {
+          "offset": 3833,
+          "length": 45
+        },
+        {
+          "offset": 4182,
+          "length": 22
+        },
+        {
+          "offset": 4248,
+          "length": 187
+        },
+        {
+          "offset": 4205,
+          "length": 42
+        },
+        {
+          "offset": 4436,
+          "length": 183
+        },
+        {
+          "offset": 4715,
+          "length": 44
+        },
+        {
+          "offset": 4620,
+          "length": 94
+        },
+        {
+          "offset": 4781,
+          "length": 121
+        },
+        {
+          "offset": 4760,
+          "length": 20
+        },
+        {
+          "offset": 4903,
+          "length": 87
+        },
+        {
+          "offset": 5030,
+          "length": 66
+        },
+        {
+          "offset": 4991,
+          "length": 38
+        },
+        {
+          "offset": 5197,
+          "length": 86
+        },
+        {
+          "offset": 5097,
+          "length": 99
+        },
+        {
+          "offset": 5284,
+          "length": 95
+        }
+      ],
+      "elements": [
+        "/paragraphs/1",
+        "/paragraphs/2",
+        "/paragraphs/3",
+        "/paragraphs/4",
+        "/paragraphs/5",
+        "/tables/0",
+        "/paragraphs/12",
+        "/paragraphs/13",
+        "/paragraphs/14",
+        "/paragraphs/15",
+        "/paragraphs/16",
+        "/paragraphs/17",
+        "/paragraphs/18",
+        "/paragraphs/19",
+        "/paragraphs/20",
+        "/paragraphs/21",
+        "/sections/3"
+      ]
+    },
+    {
+      "spans": [
+        {
+          "offset": 1407,
+          "length": 1211
+        },
+        {
+          "offset": 2658,
+          "length": 41
+        },
+        {
+          "offset": 2619,
+          "length": 38
+        },
+        {
+          "offset": 2700,
+          "length": 90
+        },
+        {
+          "offset": 2839,
+          "length": 94
+        },
+        {
+          "offset": 2959,
+          "length": 51
+        },
+        {
+          "offset": 2791,
+          "length": 47
+        },
+        {
+          "offset": 2934,
+          "length": 24
+        },
+        {
+          "offset": 3054,
+          "length": 40
+        },
+        {
+          "offset": 3011,
+          "length": 42
+        },
+        {
+          "offset": 3144,
+          "length": 117
+        },
+        {
+          "offset": 3302,
+          "length": 37
+        },
+        {
+          "offset": 3262,
+          "length": 27
+        },
+        {
+          "offset": 3095,
+          "length": 48
+        },
+        {
+          "offset": 3290,
+          "length": 11
+        },
+        {
+          "offset": 3340,
+          "length": 95
+        },
+        {
+          "offset": 3446,
+          "length": 89
+        },
+        {
+          "offset": 3436,
+          "length": 9
+        },
+        {
+          "offset": 3536,
+          "length": 101
+        },
+        {
+          "offset": 3682,
+          "length": 150
+        },
+        {
+          "offset": 3879,
+          "length": 6
+        },
+        {
+          "offset": 3927,
+          "length": 5
+        },
+        {
+          "offset": 3886,
+          "length": 40
+        },
+        {
+          "offset": 3933,
+          "length": 20
+        },
+        {
+          "offset": 3638,
+          "length": 43
+        },
+        {
+          "offset": 3954,
+          "length": 85
+        },
+        {
+          "offset": 4086,
+          "length": 3
+        },
+        {
+          "offset": 4040,
+          "length": 45
+        },
+        {
+          "offset": 4090,
+          "length": 91
+        },
+        {
+          "offset": 3833,
+          "length": 45
+        },
+        {
+          "offset": 4182,
+          "length": 22
+        },
+        {
+          "offset": 4248,
+          "length": 187
+        },
+        {
+          "offset": 4205,
+          "length": 42
+        },
+        {
+          "offset": 4436,
+          "length": 183
+        },
+        {
+          "offset": 4715,
+          "length": 44
+        },
+        {
+          "offset": 4620,
+          "length": 94
+        },
+        {
+          "offset": 4781,
+          "length": 121
+        },
+        {
+          "offset": 4760,
+          "length": 20
+        },
+        {
+          "offset": 4903,
+          "length": 87
+        },
+        {
+          "offset": 5030,
+          "length": 66
+        },
+        {
+          "offset": 4991,
+          "length": 38
+        },
+        {
+          "offset": 5197,
+          "length": 86
+        },
+        {
+          "offset": 5097,
+          "length": 99
+        },
+        {
+          "offset": 5284,
+          "length": 95
+        }
+      ],
+      "elements": [
+        "/paragraphs/22",
+        "/paragraphs/23",
+        "/paragraphs/24",
+        "/paragraphs/25",
+        "/paragraphs/26",
+        "/paragraphs/27",
+        "/paragraphs/28",
+        "/paragraphs/29",
+        "/tables/1"
+      ]
+    }
+  ]
+}
+(venv) asfawy@gsalivia-1 server % 
