@@ -73,7 +73,7 @@ This is a research prototype, but contributions and feedback are welcome. Please
 
 ## License
 
-[Add your license information here]
+[Gustavus Adolphus College]
 
 ---
 
