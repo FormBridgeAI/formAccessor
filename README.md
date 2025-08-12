@@ -77,4 +77,4 @@ This is a research prototype, but contributions and feedback are welcome. Please
 
 ---
 
-_Developed as part of AI & Accessibility Research at [Your Institution]_
+_Developed as part of AI & Accessibility Research at [Gustavus!]_
