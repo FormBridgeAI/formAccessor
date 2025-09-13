@@ -11,7 +11,7 @@
       "label": "Email Address",
       "type": "email",
       "required": true,
-      "value": "",
+      "value": "davidadedejiji@gmaifae",
       "accessibility": "Enter your email address"
     },
     {
@@ -25,28 +25,28 @@
       "label": "Date of Birth",
       "type": "date",
       "required": true,
-      "value": "October 7th 1999",
+      "value": "March 27th 2007",
       "accessibility": "Enter your date of birth"
     },
     {
       "label": "Address",
       "type": "text",
       "required": true,
-      "value": "123 Cedar Lane",
+      "value": "358654",
       "accessibility": "Enter your street address"
     },
     {
       "label": "City",
       "type": "text",
       "required": true,
-      "value": "Ohio",
+      "value": "Michigan Lottery",
       "accessibility": "Enter your city"
     },
     {
       "label": "State",
       "type": "text",
       "required": true,
-      "value": "fortnite",
+      "value": "Maryland",
       "accessibility": "Enter your state or province"
     },
     {

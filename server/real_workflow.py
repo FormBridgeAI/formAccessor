@@ -278,8 +278,114 @@ def real_form_workflow(input_image_path: str, output_image_path: str = None, use
     
     print("\n✅ All required fields filled!")
     
+    # Step 3.5: Review and confirmation phase
+    print("\n📋 Step 3.5: Review your responses...")
     if use_speech and speech_filler:
-        speech_filler.speak("Great! I've collected all the required information. Let me process the form now.")
+        speech_filler.speak("Let's review your responses. I'll read them back to you, and you can make changes if needed.")
+    
+    # Show all filled fields for review
+    filled_fields = [f for f in required_fields if f.get('value')]
+    
+    while True:
+        print("\n--- FORM REVIEW ---")
+        for i, field in enumerate(filled_fields, 1):
+            print(f"{i}. {field.get('label')}: {field.get('value')}")
+        
+        if use_speech and speech_filler:
+            # Read responses aloud
+            review_text = "Here are your responses: "
+            for field in filled_fields:
+                review_text += f"{field.get('label')}: {field.get('value')}. "
+            speech_filler.speak(review_text)
+
+            #Get confirmation via speech
+            confirmation = speech_filler.get_user_input_speech("Would you like to make any changes? Say 'yes' to edit a field, 'no' to continue and 'review' to hear your answers again.")
+            
+            
+            if confirmation and ("yes" in confirmation.lower() or "change" in confirmation.lower() or "edit" in confirmation.lower()):
+                # Ask which field to edit
+                speech_filler.speak("Which field would you like to change? Please say the field name or number.")
+                field_to_edit = speech_filler.get_user_input_speech("Which field would you like to change?", "text")
+                
+                if field_to_edit:
+                    # Find the field to edit
+                    field_found = False
+                    for field in filled_fields:
+                        if (field.get('label', '').lower() in field_to_edit.lower() or 
+                            str(filled_fields.index(field) + 1) in field_to_edit):
+                            
+                            # Re-ask for this field
+                            old_value = field.get('value')
+                            speech_filler.speak(f"Current value for {field.get('label')} is {old_value}. What's the new value?")
+                            new_value = speech_filler.get_user_input_speech(f"New value for {field.get('label')}:", field.get('type', 'text'))
+                            
+                            if new_value:
+                                field['value'] = new_value
+                                speech_filler.speak(f"Updated {field.get('label')} to {new_value}")
+                            field_found = True
+                            break
+                    
+                    if not field_found:
+                        speech_filler.speak("I couldn't find that field. Let's continue with the current values.")
+                else:
+                    speech_filler.speak("I didn't catch that. Let's continue with the current values.")
+            elif ("no" in confirmation.lower() or "continue" in confirmation.lower() or "n" in confirmation.lower()):
+                # User is satisfied with the responses
+                speech_filler.speak("Perfect! Processing your form now.")
+                break
+            speech_filler.speak("Reviewing your answers again.")
+        else:
+            # Text-based confirmation
+            while True:
+                print("\nWhat would you like to do?")
+                print("1. Edit a field (e)")
+                print("2. Review all values (r)")
+                print("3. Continue with current values (c)")
+                print("Choice (e/r/c): ", end="")
+                confirmation = input().strip().lower()
+                
+                if confirmation in ['e', 'edit', '1']:
+                    # Ask which field to edit
+                    print("Enter the number of the field you'd like to change (1-{}): ".format(len(filled_fields)), end="")
+                    try:
+                        field_num = int(input().strip())
+                        if 1 <= field_num <= len(filled_fields):
+                            field_to_edit = filled_fields[field_num - 1]
+                            old_value = field_to_edit.get('value')
+                            print(f"Current value: {old_value}")
+                            new_value = input(f"Enter new value for '{field_to_edit.get('label')}': ").strip()
+                            
+                            if new_value:
+                                field_to_edit['value'] = new_value
+                                print(f"✅ Updated {field_to_edit.get('label')} to: {new_value}")
+                            else:
+                                print("No change made.")
+                        else:
+                            print("Invalid field number.")
+                    except ValueError:
+                        print("Please enter a valid number.")
+                        
+                elif confirmation in ['r', 'review', '2']:
+                    # Review all values
+                    print("\n--- DETAILED REVIEW ---")
+                    for i, field in enumerate(filled_fields, 1):
+                        print(f"{i}. {field.get('label')}")
+                        print(f"   Type: {field.get('type', 'text')}")
+                        print(f"   Value: {field.get('value')}")
+                        if field.get('accessibility'):
+                            print(f"   Description: {field.get('accessibility')}")
+                        print()
+                    print("--- END REVIEW ---")
+                        
+                elif confirmation in ['c', 'continue', '3', 'n', 'no']:
+                    print("✅ Proceeding with current values...")
+                    break
+                else:
+                    print("Please enter 'e' for edit, 'r' for review, or 'c' to continue.")
+            break
+    
+    if use_speech and speech_filler:
+        speech_filler.speak("Great! I've finalized all your information. Let me process the form now.")
     
     # Step 4: Generate the filled form image using precise coordinates
     print("\n🎨 Step 4: Generating filled form image with precise positioning...")
