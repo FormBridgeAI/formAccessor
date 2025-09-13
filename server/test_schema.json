@@ -1,0 +1,60 @@
+{
+    "fields": [
+        {
+            "label": "Full Name",
+            "type": "text",
+            "required": true,
+            "value": "",
+            "accessibility": "Enter your full legal name"
+        },
+        {
+            "label": "Email Address",
+            "type": "email",
+            "required": true,
+            "value": "",
+            "accessibility": "Enter your email address"
+        },
+        {
+            "label": "Phone Number",
+            "type": "phone",
+            "required": true,
+            "value": "",
+            "accessibility": "Enter your phone number"
+        },
+        {
+            "label": "Date of Birth",
+            "type": "date",
+            "required": true,
+            "value": "",
+            "accessibility": "Enter your date of birth"
+        },
+        {
+            "label": "Address",
+            "type": "text",
+            "required": true,
+            "value": "",
+            "accessibility": "Enter your street address"
+        },
+        {
+            "label": "City",
+            "type": "text",
+            "required": true,
+            "value": "",
+            "accessibility": "Enter your city"
+        },
+        {
+            "label": "State",
+            "type": "text",
+            "required": true,
+            "value": "",
+            "accessibility": "Enter your state or province"
+        },
+        {
+            "label": "ZIP Code",
+            "type": "text",
+            "required": true,
+            "value": "",
+            "accessibility": "Enter your ZIP or postal code"
+        }
+    ]
+}

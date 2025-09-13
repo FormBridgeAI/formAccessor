@@ -2,139 +2,59 @@
   "fields": [
     {
       "label": "Full Name",
-      "section": "Personal Information",
-      "type": "group",
-      "required": true,
-      "options": null,
-      "accessibility": "public",
-      "value": ""
-    },
-    {
-      "label": "First Name",
-      "section": "Personal Information",
       "type": "text",
       "required": true,
-      "options": null,
-      "accessibility": "public",
-      "value": "Youdahe"
+      "value": "David",
+      "accessibility": "Enter your full legal name"
     },
     {
-      "label": "Middle Name",
-      "section": "Personal Information",
-      "type": "text",
-      "required": false,
-      "options": null,
-      "accessibility": "public",
-      "value": ""
-    },
-    {
-      "label": "Last Name",
-      "section": "Personal Information",
-      "type": "text",
+      "label": "Email Address",
+      "type": "email",
       "required": true,
-      "options": null,
-      "accessibility": "public",
-      "value": "Asfaw"
+      "value": "davidadedejiji@gmaifae",
+      "accessibility": "Enter your email address"
     },
     {
-      "label": "Birth Date",
-      "section": "Personal Information",
-      "type": "group",
+      "label": "Phone Number",
+      "type": "phone",
       "required": true,
-      "options": null,
-      "accessibility": "public",
-      "value": ""
+      "value": "240",
+      "accessibility": "Enter your phone number"
     },
     {
-      "label": "Month",
-      "section": "Personal Information",
-      "type": "select",
+      "label": "Date of Birth",
+      "type": "date",
       "required": true,
-      "options": [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ],
-      "accessibility": "public",
-      "value": "April"
+      "value": "March 27th 2007",
+      "accessibility": "Enter your date of birth"
     },
     {
-      "label": "Day",
-      "section": "Personal Information",
-      "type": "number",
-      "required": true,
-      "options": {
-        "min": 1,
-        "max": 31
-      },
-      "accessibility": "public",
-      "value": "29"
-    },
-    {
-      "label": "Year",
-      "section": "Personal Information",
-      "type": "number",
-      "required": true,
-      "options": {
-        "min": 1900,
-        "max": 2023
-      },
-      "accessibility": "public",
-      "value": "2006"
-    },
-    {
-      "label": "Current Address",
-      "section": "Contact Information",
-      "type": "group",
-      "required": true,
-      "options": null,
-      "accessibility": "public",
-      "value": ""
-    },
-    {
-      "label": "Street Address",
-      "section": "Contact Information",
+      "label": "Address",
       "type": "text",
       "required": true,
-      "options": null,
-      "accessibility": "public",
-      "value": "800 college ave"
-    },
-    {
-      "label": "Street Address Line 2",
-      "section": "Contact Information",
-      "type": "text",
-      "required": false,
-      "options": null,
-      "accessibility": "public",
-      "value": ""
+      "value": "358654",
+      "accessibility": "Enter your street address"
     },
     {
       "label": "City",
-      "section": "Contact Information",
       "type": "text",
       "required": true,
-      "options": null,
-      "accessibility": "public",
-      "value": "Saint Peter"
+      "value": "Michigan Lottery",
+      "accessibility": "Enter your city"
     },
     {
-      "label": "State / Province",
-      "section": "Contact Information",
+      "label": "State",
       "type": "text",
       "required": true,
-      "options": null,
-      "accessibility": "public",
-      "value": "MN"
+      "value": "Maryland",
+      "accessibility": "Enter your state or province"
+    },
+    {
+      "label": "ZIP Code",
+      "type": "text",
+      "required": true,
+      "value": "20723",
+      "accessibility": "Enter your ZIP or postal code"
     }
   ]
 }
