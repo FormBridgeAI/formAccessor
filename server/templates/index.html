@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice-Enabled Form Filling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .step {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        .step.active {
+            border-color: #4CAF50;
+            background: #f9f9f9;
+        }
+        .upload-area {
+            border: 3px dashed #4CAF50;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            cursor: pointer;
+            background: #f9f9f9;
+        }
+        .upload-area:hover {
+            background: #e8f5e8;
+        }
+        .btn {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background: #45a049;
+        }
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .btn-danger {
+            background: #f44336;
+        }
+        .btn-danger:hover {
+            background: #da190b;
+        }
+        .file-input {
+            display: none;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.processing {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .status.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        .voice-interaction {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .voice-controls {
+            margin: 20px 0;
+        }
+        .voice-btn {
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        .voice-btn:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+        .voice-btn.recording {
+            background: #f44336;
+            animation: pulse 1s infinite;
+        }
+        .voice-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .current-question {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .filled-info {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #4CAF50;
+            transition: width 0.3s;
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .hidden {
+            display: none;
+        }
+        .form-image {
+            max-width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .results-section {
+            display: none;
+        }
+        .voice-status {
+            font-size: 16px;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+        .field-counter {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .microphone-permission {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .microphone-permission button {
+            background: #ffc107;
+            color: #212529;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .microphone-permission button:hover {
+            background: #e0a800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎤 Voice-Enabled Form Filling</h1>
+            <p>Upload a form and fill it out using voice interaction</p>
+        </div>
+
+        <!-- Step 1: Upload -->
+        <div class="step active" id="step1">
+            <h3>📄 Step 1: Upload Form Image</h3>
+            <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                <div style="font-size: 48px; margin-bottom: 15px;">📁</div>
+                <div style="font-size: 18px; margin-bottom: 10px;">Click to upload or drag & drop your form</div>
+                <div style="color: #666;">Supports PDF, PNG, JPG, JPEG, TIFF, BMP (Max 16MB)</div>
+                <input type="file" id="fileInput" class="file-input" accept=".pdf,.png,.jpg,.jpeg,.tiff,.bmp">
+            </div>
+            
+            <div id="uploadStatus" class="hidden"></div>
+            <button class="btn" id="processBtn" disabled onclick="startProcessing()">Start Processing</button>
+        </div>
+
+        <!-- Step 2: Processing -->
+        <div class="step" id="step2">
+            <h3>⚙️ Step 2: Processing Form</h3>
+            <div class="status processing" id="processingStatus">
+                <div class="loading"></div>
+                <span id="processingText">Ready to process...</span>
+            </div>
+        </div>
+
+        <!-- Step 3: Voice Interaction -->
+        <div class="step" id="step3">
+            <h3>🎤 Step 3: Voice Form Filling</h3>
+            <div class="voice-interaction" id="voiceInteraction">
+                <div class="microphone-permission" id="microphonePermission">
+                    <h4>🎤 Microphone Permission Required</h4>
+                    <p>To use voice input, please allow microphone access when prompted by your browser.</p>
+                    <button onclick="requestMicrophonePermission()">Enable Microphone</button>
+                </div>
+                
+                <div class="status info" id="voiceReadyStatus" style="display: none;">
+                    AI will ask you questions about each field. Answer using your voice!
+                </div>
+                
+                <div class="field-counter" id="fieldCounter">
+                    Field 0 of 0
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+                
+                <div class="current-question" id="currentQuestion">
+                    Preparing questions...
+                </div>
+                
+                <div class="voice-controls">
+                    <button class="voice-btn" id="voiceBtn" onclick="toggleVoiceInput()" disabled>🎤 Start Voice Input</button>
+                    <button class="btn btn-danger" onclick="skipQuestion()">Skip Question</button>
+                </div>
+                
+                <div class="voice-status" id="voiceStatus">
+                    Click "Enable Microphone" first, then start voice input
+                </div>
+                
+                <div id="filledInfo"></div>
+            </div>
+        </div>
+
+        <!-- Step 4: Results -->
+        <div class="step" id="step4">
+            <h3>✅ Step 4: Completed Form</h3>
+            <div class="status success">
+                Form filling completed successfully!
+            </div>
+            
+            <div class="results-section" id="resultsSection">
+                <h4>📋 Filled Form Data:</h4>
+                <pre id="resultsData" style="background: #2d3748; color: #e2e8f0; padding: 15px; border-radius: 5px; overflow-x: auto; max-height: 300px;"></pre>
+                
+                <h4>🖼️ Filled Form Image:</h4>
+                <div id="imageContainer">
+                    <div class="loading"></div>
+                    <p>Generating filled form image...</p>
+                </div>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="btn" onclick="resetForm()">Start Over</button>
+                    <button class="btn" onclick="downloadForm()">Download Form</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedFile = null;
+        let currentStep = 1;
+        let isRecording = false;
+        let recognition = null;
+        let currentFieldIndex = 0;
+        let formFields = [];
+        let filledFields = {};
+        let microphonePermissionGranted = false;
+
+        // Initialize speech recognition
+        function initializeSpeechRecognition() {
+            if ('webkitSpeechRecognition' in window) {
+                recognition = new webkitSpeechRecognition();
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                recognition.lang = 'en-US';
+
+                recognition.onresult = function(event) {
+                    const transcript = event.results[0][0].transcript;
+                    handleVoiceInput(transcript);
+                };
+
+                recognition.onerror = function(event) {
+                    updateVoiceStatus('Voice recognition error: ' + event.error);
+                    isRecording = false;
+                    updateVoiceButton();
+                };
+
+                recognition.onend = function() {
+                    isRecording = false;
+                    updateVoiceButton();
+                };
+
+                recognition.onstart = function() {
+                    updateVoiceStatus('Listening... Speak now!');
+                };
+
+                return true;
+            } else {
+                updateVoiceStatus('Voice recognition not supported in this browser. Please use Chrome.');
+                return false;
+            }
+        }
+
+        // Request microphone permission
+        async function requestMicrophonePermission() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                stream.getTracks().forEach(track => track.stop()); // Stop the stream immediately
+                
+                microphonePermissionGranted = true;
+                document.getElementById('microphonePermission').style.display = 'none';
+                document.getElementById('voiceReadyStatus').style.display = 'block';
+                document.getElementById('voiceBtn').disabled = false;
+                updateVoiceStatus('Microphone permission granted! Click "Start Voice Input" to begin.');
+                
+                // Initialize speech recognition
+                if (initializeSpeechRecognition()) {
+                    updateVoiceStatus('Ready for voice input! Click the microphone button to start.');
+                }
+            } catch (error) {
+                updateVoiceStatus('Microphone permission denied. Please allow microphone access and try again.');
+                console.error('Microphone permission error:', error);
+            }
+        }
+
+        // File upload handling
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                handleFile(file);
+            }
+        });
+
+        function handleFile(file) {
+            // Validate file type
+            const allowedTypes = ['application/pdf', 'image/png', 'image/jpeg', 'image/jpg', 'image/tiff', 'image/bmp'];
+            if (!allowedTypes.includes(file.type)) {
+                showStatus('Please select a valid file type (PDF, PNG, JPG, JPEG, TIFF, BMP)', 'error');
+                return;
+            }
+
+            // Validate file size (16MB)
+            if (file.size > 16 * 1024 * 1024) {
+                showStatus('File size must be less than 16MB', 'error');
+                return;
+            }
+
+            // Upload file
+            uploadFile(file);
+        }
+
+        async function uploadFile(file) {
+            showStatus('Uploading file...', 'processing');
+            
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showStatus('File uploaded successfully: ' + data.filename, 'success');
+                    selectedFile = data;
+                    document.getElementById('processBtn').disabled = false;
+                } else {
+                    showStatus('Upload failed: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showStatus('Upload failed: ' + error.message, 'error');
+            }
+        }
+
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('uploadStatus');
+            statusDiv.textContent = message;
+            statusDiv.className = 'status ' + type;
+            statusDiv.classList.remove('hidden');
+        }
+
+        async function startProcessing() {
+            if (!selectedFile) {
+                alert('Please upload a file first');
+                return;
+            }
+
+            // Update processing status
+            document.getElementById('processingText').textContent = 'Analyzing form structure with AI...';
+            setStep(2);
+
+            try {
+                const response = await fetch('/api/process', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        document_path: selectedFile.filepath,
+                        use_voice: true
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    pollStatus();
+                } else {
+                    alert('Error processing document: ' + data.error);
+                    setStep(1);
+                }
+            } catch (error) {
+                alert('Error processing document: ' + error.message);
+                setStep(1);
+            }
+        }
+
+        async function pollStatus() {
+            try {
+                const response = await fetch('/api/status');
+                const data = await response.json();
+
+                if (data.success) {
+                    if (data.status === 'ready') {
+                        document.getElementById('processingText').textContent = 'Form analysis complete!';
+                        setTimeout(() => {
+                            setStep(3);
+                            startVoiceInteraction();
+                        }, 1000);
+                    } else if (data.status === 'error') {
+                        alert('Processing error: ' + data.error);
+                        setStep(1);
+                    } else {
+                        // Still processing, check again in 1 second
+                        setTimeout(pollStatus, 1000);
+                    }
+                }
+            } catch (error) {
+                alert('Error checking status: ' + error.message);
+                setStep(1);
+            }
+        }
+
+        async function startVoiceInteraction() {
+            try {
+                const response = await fetch('/api/fields');
+                const data = await response.json();
+
+                if (data.success) {
+                    formFields = data.fields;
+                    currentFieldIndex = 0;
+                    filledFields = {};
+                    
+                    document.getElementById('voiceInteraction').classList.remove('hidden');
+                    updateFieldCounter();
+                    askNextQuestion();
+                } else {
+                    alert('Error loading form fields: ' + data.error);
+                }
+            } catch (error) {
+                alert('Error loading form fields: ' + error.message);
+            }
+        }
+
+        function updateFieldCounter() {
+            const counter = document.getElementById('fieldCounter');
+            counter.textContent = `Field ${currentFieldIndex + 1} of ${formFields.length}`;
+        }
+
+        function askNextQuestion() {
+            if (currentFieldIndex >= formFields.length) {
+                completeForm();
+                return;
+            }
+
+            const field = formFields[currentFieldIndex];
+            const question = generateQuestion(field);
+            
+            document.getElementById('currentQuestion').textContent = question;
+            updateProgress();
+            updateFieldCounter();
+            
+            // Use text-to-speech to ask the question
+            speakText(question);
+        }
+
+        function generateQuestion(field) {
+            const fieldLabel = field.label;
+            const fieldType = field.type;
+            
+            if (fieldLabel.toLowerCase().includes('name')) {
+                if (fieldLabel.toLowerCase().includes('first')) {
+                    return `What is your first name?`;
+                } else if (fieldLabel.toLowerCase().includes('last')) {
+                    return `What is your last name?`;
+                } else {
+                    return `What is your full name?`;
+                }
+            } else if (fieldLabel.toLowerCase().includes('date') || fieldLabel.toLowerCase().includes('birth')) {
+                return `What is your ${fieldLabel.toLowerCase()}? Please say the month, day, and year.`;
+            } else if (fieldLabel.toLowerCase().includes('address')) {
+                return `What is your ${fieldLabel.toLowerCase()}?`;
+            } else if (fieldLabel.toLowerCase().includes('email')) {
+                return `What is your email address?`;
+            } else if (fieldLabel.toLowerCase().includes('phone')) {
+                return `What is your phone number?`;
+            } else if (fieldType === 'number') {
+                return `What is your ${fieldLabel.toLowerCase()}? Please say the number.`;
+            } else {
+                return `What is your ${fieldLabel.toLowerCase()}?`;
+            }
+        }
+
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.9;
+                utterance.pitch = 1;
+                utterance.volume = 1;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        function toggleVoiceInput() {
+            if (!microphonePermissionGranted) {
+                updateVoiceStatus('Please enable microphone permission first!');
+                return;
+            }
+            
+            if (!recognition) {
+                updateVoiceStatus('Voice recognition not available. Please refresh the page.');
+                return;
+            }
+            
+            if (isRecording) {
+                recognition.stop();
+            } else {
+                recognition.start();
+                isRecording = true;
+            }
+            updateVoiceButton();
+        }
+
+        function updateVoiceButton() {
+            const btn = document.getElementById('voiceBtn');
+            if (isRecording) {
+                btn.textContent = '🛑 Stop Recording';
+                btn.classList.add('recording');
+            } else {
+                btn.textContent = '🎤 Start Voice Input';
+                btn.classList.remove('recording');
+            }
+        }
+
+        function updateVoiceStatus(message) {
+            document.getElementById('voiceStatus').textContent = message;
+        }
+
+        async function handleVoiceInput(transcript) {
+            const field = formFields[currentFieldIndex];
+            const fieldLabel = field.label;
+            
+            // Store the answer
+            filledFields[fieldLabel] = transcript;
+            
+            // Show confirmation
+            const confirmation = `Got it! You said: "${transcript}"`;
+            updateVoiceStatus(confirmation);
+            
+            // Show filled info
+            showFilledInfo(fieldLabel, transcript);
+            
+            // Send to backend
+            try {
+                await fetch('/api/fill-field', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        field_label: fieldLabel,
+                        value: transcript
+                    })
+                });
+            } catch (error) {
+                console.error('Error saving field:', error);
+            }
+            
+            // Move to next question
+            currentFieldIndex++;
+            setTimeout(() => {
+                askNextQuestion();
+            }, 2000);
+        }
+
+        function showFilledInfo(fieldLabel, value) {
+            const filledInfo = document.getElementById('filledInfo');
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'filled-info';
+            infoDiv.innerHTML = `<strong>${fieldLabel}:</strong> ${value}`;
+            filledInfo.appendChild(infoDiv);
+        }
+
+        function skipQuestion() {
+            currentFieldIndex++;
+            askNextQuestion();
+        }
+
+        function updateProgress() {
+            const progress = (currentFieldIndex / formFields.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        async function completeForm() {
+            try {
+                const response = await fetch('/api/complete');
+                const data = await response.json();
+
+                if (data.success) {
+                    setStep(4);
+                    showResults(data.filled_schema, data.filled_image_path);
+                } else {
+                    alert('Error completing form: ' + data.error);
+                }
+            } catch (error) {
+                alert('Error completing form: ' + error.message);
+            }
+        }
+
+        function showResults(filledSchema, filledImagePath) {
+            document.getElementById('resultsData').textContent = 
+                JSON.stringify(filledSchema, null, 2);
+            document.getElementById('resultsSection').classList.remove('hidden');
+            
+            // Show filled form image
+            if (filledImagePath) {
+                const imageContainer = document.getElementById('imageContainer');
+                imageContainer.innerHTML = `
+                    <img src="/api/filled-image" class="form-image" alt="Filled form" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none; text-align: center; padding: 20px; background: #f0f0f0; border-radius: 8px;">
+                        <p>Filled form image will be generated here</p>
+                    </div>
+                `;
+            }
+        }
+
+        function downloadForm() {
+            // This would download the filled form image
+            const link = document.createElement('a');
+            link.href = '/api/filled-image';
+            link.download = 'filled-form.jpg';
+            link.click();
+        }
+
+        function setStep(step) {
+            currentStep = step;
+
+            // Update step visibility
+            for (let i = 1; i <= 4; i++) {
+                const stepElement = document.getElementById('step' + i);
+                if (i === step) {
+                    stepElement.classList.add('active');
+                } else {
+                    stepElement.classList.remove('active');
+                }
+            }
+        }
+
+        function resetForm() {
+            setStep(1);
+            selectedFile = null;
+            document.getElementById('processBtn').disabled = true;
+            document.getElementById('fileInput').value = '';
+            document.getElementById('uploadStatus').classList.add('hidden');
+            document.getElementById('voiceInteraction').classList.add('hidden');
+            document.getElementById('resultsSection').classList.add('hidden');
+            document.getElementById('filledInfo').innerHTML = '';
+            document.getElementById('progressFill').style.width = '0%';
+            document.getElementById('processingText').textContent = 'Ready to process...';
+            document.getElementById('microphonePermission').style.display = 'block';
+            document.getElementById('voiceReadyStatus').style.display = 'none';
+            document.getElementById('voiceBtn').disabled = true;
+            currentFieldIndex = 0;
+            formFields = [];
+            filledFields = {};
+            microphonePermissionGranted = false;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "type": "Settings",
+  "audio": {
+    "input": {
+      "encoding": "linear16",
+      "sample_rate": 48000
+    },
+    "output": {
+      "encoding": "linear16",
+      "sample_rate": 24000,
+      "container": "none"
+    }
+  },
+  "agent": {
+    "language": "en",
+    "speak": {
+      "provider": {
+        "type": "deepgram",
+        "model": "aura-2-odysseus-en"
+      }
+    },
+    "listen": {
+      "provider": {
+        "type": "deepgram",
+        "model": "nova-3"
+      }
+    },
+    "think": {
+      "provider": {
+        "type": "open_ai",
+        "model": "gpt-4o-mini"
+      },
+      "prompt": "You are Fill.ai, a helpful voice assistant that guides users through filling out forms step by step. You will be given a JSON schema of form fields that need to be filled out. Your job is to:\n\n1. Ask the user one question at a time for each required field\n2. Use natural, conversational language\n3. If the user gives an answer, acknowledge it and move to the next field\n4. If the user says 'skip' or 'I don't know', move to the next field\n5. After all fields are filled, summarize what was collected\n6. Keep responses brief and friendly\n\nCurrent form fields to collect: [This will be populated with actual form fields]\n\nAlways speak in a warm, helpful tone. Ask one question at a time and wait for the user's response before moving on."
+    },
+    "greeting": "Hi! I'm Fill.ai, your form-filling assistant. I'll help you complete this form by asking you a few quick questions. Let's start with the first field. What is your full name?"
+  }
+}

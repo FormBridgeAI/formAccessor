@@ -6,7 +6,7 @@ import os
 from typing import Dict, List, Tuple, Any
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv("../.env")
 
 class CoordinateExtractor:
     """

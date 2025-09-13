@@ -1,0 +1,66 @@
+Welcome message: {
+    "type": "Welcome",
+    "request_id": "ae597dba-c67c-4484-8fb6-e161d01362dc"
+}
+Settings applied: {
+    "type": "SettingsApplied"
+}
+Error: {
+    "description": "Exception in AgentWebSocketClient._process_text",
+    "message": "'AgentWebSocketClient' object has no attribute '_handle_conversation_text'",
+    "type": "Exception"
+}
+Connection closed: {
+    "type": "Close"
+}
+Welcome message: {
+    "type": "Welcome",
+    "request_id": "fedce342-a7f8-435a-a159-779cd3e11cd9"
+}
+Settings applied: {
+    "type": "SettingsApplied"
+}
+Error: {
+    "description": "Exception in AgentWebSocketClient._process_text",
+    "message": "'AgentWebSocketClient' object has no attribute '_handle_conversation_text'",
+    "type": "Exception"
+}
+Connection closed: {
+    "type": "Close"
+}
+Welcome message: {
+    "type": "Welcome",
+    "request_id": "448e7a56-249b-442d-9b02-1a33f22b7dbd"
+}
+Settings applied: {
+    "type": "SettingsApplied"
+}
+Error: {
+    "description": "Exception in AgentWebSocketClient._process_text",
+    "message": "'AgentWebSocketClient' object has no attribute '_handle_conversation_text'",
+    "type": "Exception"
+}
+Connection closed: {
+    "type": "Close"
+}
+Connection closed: {
+    "type": "Close"
+}
+Welcome message: {
+    "type": "Welcome",
+    "request_id": "4dd20c6b-8601-413a-88ea-a9d2378e9762"
+}
+Settings applied: {
+    "type": "SettingsApplied"
+}
+Error: {
+    "description": "Exception in AgentWebSocketClient._process_text",
+    "message": "'AgentWebSocketClient' object has no attribute '_handle_conversation_text'",
+    "type": "Exception"
+}
+Connection closed: {
+    "type": "Close"
+}
+Connection closed: {
+    "type": "Close"
+}

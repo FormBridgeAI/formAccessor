@@ -7,7 +7,7 @@ import re
 from dotenv import load_dotenv
 import time
 
-load_dotenv()
+load_dotenv("../.env")
 Client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 # Azure setup

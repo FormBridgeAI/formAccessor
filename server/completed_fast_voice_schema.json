@@ -7,7 +7,7 @@
       "required": true,
       "options": [],
       "accessibility": "public",
-      "value": "John brown James"
+      "value": "Ryan Adams"
     },
     {
       "label": "First Name",
@@ -16,7 +16,7 @@
       "required": true,
       "options": [],
       "accessibility": "public",
-      "value": "john"
+      "value": "Ryan"
     },
     {
       "label": "Middle Name",
@@ -34,20 +34,77 @@
       "required": true,
       "options": [],
       "accessibility": "public",
-      "value": "brown"
+      "value": "Adams"
     },
     {
       "label": "Birth Date",
       "section": "Personal Information",
       "type": "date",
       "required": true,
-      "options": {
-        "Month": [],
-        "Day": [],
-        "Year": []
-      },
+      "options": [
+        {
+          "label": "Month",
+          "type": "select",
+          "options": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+          ]
+        },
+        {
+          "label": "Day",
+          "type": "select",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31"
+          ]
+        },
+        {
+          "label": "Year",
+          "type": "number",
+          "options": []
+        }
+      ],
       "accessibility": "public",
-      "value": "April 29 2006"
+      "value": "same month day year"
     },
     {
       "label": "Current Address",
@@ -56,7 +113,7 @@
       "required": true,
       "options": [],
       "accessibility": "public",
-      "value": "800 College Ave"
+      "value": ""
     },
     {
       "label": "Street Address",
@@ -65,7 +122,7 @@
       "required": true,
       "options": [],
       "accessibility": "public",
-      "value": "123"
+      "value": ""
     },
     {
       "label": "Street Address Line 2",
@@ -83,7 +140,7 @@
       "required": true,
       "options": [],
       "accessibility": "public",
-      "value": "Saitn peter"
+      "value": ""
     },
     {
       "label": "State / Province",
@@ -92,7 +149,7 @@
       "required": true,
       "options": [],
       "accessibility": "public",
-      "value": "MN"
+      "value": ""
     }
   ]
 }

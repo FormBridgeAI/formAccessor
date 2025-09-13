@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from practice import extract_and_generate_schema
 import time
 
-load_dotenv()
+load_dotenv("../.env")
 Client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 file_path = "/Users/asfawy/Downloads/free-printable-w-9-forms-2018-form-resume-examples-xjkenpq3rk-free-printable-w9-2749523178 (2).jpg"
