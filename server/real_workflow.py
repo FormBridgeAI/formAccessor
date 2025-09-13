@@ -9,7 +9,9 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import pyttsx3
 import speech_recognition as sr
+from elevenlabs import stream
 
+from elevenlabs.client import ElevenLabs
 class SpeechFormFiller:
     def __init__(self):
         """Initialize the speech-enabled form filler"""
@@ -46,9 +48,18 @@ class SpeechFormFiller:
     
     def speak(self, text):
         """Convert text to speech"""
-        print(f" Speaking: {text}")
-        self.tts_engine.say(text)
-        self.tts_engine.runAndWait()
+        print(f"🤖 Speaking: {text}")
+        client = ElevenLabs(
+            api_key="sk_e5e8db243db8849fb1508cb9439bc5df9032246c71608364",
+        )
+        audio_stream = client.text_to_speech.stream(
+            text=text,
+            voice_id="JBFqnCBsd6RMkjVDRZzb",
+            model_id="eleven_multilingual_v2"
+        )
+
+        # option 1: play the streamed audio locally
+        stream(audio_stream)
     
     def listen(self, timeout=10):
         """Listen for user speech input"""
@@ -146,7 +157,12 @@ def real_form_workflow(input_image_path: str, output_image_path: str = None, use
     if use_speech and speech_filler:
         speech_filler.speak("I'm analyzing your form. Please wait a moment.")
     
-    schema = extract_and_generate_schema(input_image_path)
+    schema_file = os.path.join(os.path.dirname(__file__), "test_schema.json")
+    if os.path.exists(schema_file):
+        print(f"🔄 Using existing schema from: {schema_file}")
+        with open(schema_file, "r") as f:
+            schema = json.load(f)
+    # schema = extract_and_generate_schema(input_image_path)
     
     if not schema:
         error_msg = "❌ Could not extract schema. Please check the previous output for errors."
@@ -334,7 +350,9 @@ def main():
     use_speech = choice == "2"
     
     # Use the form in sample_data folder starting with 427
-    input_image = "/Users/asfawy/hopHack(fill.ai)/formAccessor/sample_data/simple-job-application-form-27d287c8e2b97cd3f175c12ef67426b2-classic.png"
+    input_image = os.path.join(os.path.dirname(os.path.dirname(__file__)), "sample_data", "simple-job-application-form-27d287c8e2b97cd3f175c12ef67426b2-classic.png")
+
+    # input_image = "../sample_data/simple-job-application-form-27d287c8e2b97cd3f175c12ef67426b2-classic.png"
     
     # Check if the image exists
     if not os.path.exists(input_image):

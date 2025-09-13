@@ -7,6 +7,9 @@ from dotenv import load_dotenv
 from practice import extract_and_generate_schema
 import pyttsx3
 import speech_recognition as sr
+from elevenlabs import stream
+
+from elevenlabs.client import ElevenLabs
 
 class SpeechFormFiller:
     def __init__(self):
@@ -44,9 +47,22 @@ class SpeechFormFiller:
     
     def speak(self, text):
         """Convert text to speech"""
-        print(f"🔊 Speaking: {text}")
-        self.tts_engine.say(text)
-        self.tts_engine.runAndWait()
+        print(f"🤖 Speaking: {text}")
+        client = ElevenLabs(
+            api_key="sk_e5e8db243db8849fb1508cb9439bc5df9032246c71608364",
+        )
+        audio_stream = client.text_to_speech.stream(
+            text=text,
+            voice_id="JBFqnCBsd6RMkjVDRZzb",
+            model_id="eleven_multilingual_v2"
+        )
+
+        # option 1: play the streamed audio locally
+        stream(audio_stream)
+
+        # print(f"🔊 Speaking: {text}")
+        # self.tts_engine.say(text)
+        # self.tts_engine.runAndWait()
     
     def listen(self, timeout=10):
         """Listen for user speech input"""

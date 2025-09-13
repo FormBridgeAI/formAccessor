@@ -2,97 +2,59 @@
   "fields": [
     {
       "label": "Full Name",
-      "section": "Personal Information",
       "type": "text",
       "required": true,
-      "options": [],
-      "accessibility": "public",
-      "value": "Adam Brown Jr"
+      "value": "David",
+      "accessibility": "Enter your full legal name"
     },
     {
-      "label": "First Name",
-      "section": "Personal Information",
-      "type": "text",
+      "label": "Email Address",
+      "type": "email",
       "required": true,
-      "options": [],
-      "accessibility": "public",
-      "value": "Adam"
+      "value": "",
+      "accessibility": "Enter your email address"
     },
     {
-      "label": "Middle Name",
-      "section": "Personal Information",
-      "type": "text",
-      "required": false,
-      "options": [],
-      "accessibility": "public",
-      "value": ""
-    },
-    {
-      "label": "Last Name",
-      "section": "Personal Information",
-      "type": "text",
+      "label": "Phone Number",
+      "type": "phone",
       "required": true,
-      "options": [],
-      "accessibility": "public",
-      "value": "what's your last name Junior"
+      "value": "240",
+      "accessibility": "Enter your phone number"
     },
     {
-      "label": "Birth Date",
-      "section": "Personal Information",
+      "label": "Date of Birth",
       "type": "date",
       "required": true,
-      "options": {
-        "Month": [],
-        "Day": [],
-        "Year": []
-      },
-      "accessibility": "public",
-      "value": "October 1st 2005"
+      "value": "October 7th 1999",
+      "accessibility": "Enter your date of birth"
     },
     {
-      "label": "Current Address",
-      "section": "Contact Information",
+      "label": "Address",
       "type": "text",
       "required": true,
-      "options": [],
-      "accessibility": "public",
-      "value": "123 College Avenue"
-    },
-    {
-      "label": "Street Address",
-      "section": "Contact Information",
-      "type": "text",
-      "required": true,
-      "options": [],
-      "accessibility": "public",
-      "value": "none"
-    },
-    {
-      "label": "Street Address Line 2",
-      "section": "Contact Information",
-      "type": "text",
-      "required": false,
-      "options": [],
-      "accessibility": "public",
-      "value": ""
+      "value": "123 Cedar Lane",
+      "accessibility": "Enter your street address"
     },
     {
       "label": "City",
-      "section": "Contact Information",
       "type": "text",
       "required": true,
-      "options": [],
-      "accessibility": "public",
-      "value": "Saint Peter"
+      "value": "Ohio",
+      "accessibility": "Enter your city"
     },
     {
-      "label": "State / Province",
-      "section": "Contact Information",
+      "label": "State",
       "type": "text",
       "required": true,
-      "options": [],
-      "accessibility": "public",
-      "value": "Minnesota"
+      "value": "fortnite",
+      "accessibility": "Enter your state or province"
+    },
+    {
+      "label": "ZIP Code",
+      "type": "text",
+      "required": true,
+      "value": "20723",
+      "accessibility": "Enter your ZIP or postal code"
     }
   ]
 }
