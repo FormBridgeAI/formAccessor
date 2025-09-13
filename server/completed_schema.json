@@ -3,27 +3,27 @@
     {
       "label": "Full Name",
       "section": "Personal Information",
-      "type": "group",
+      "type": "text",
       "required": true,
-      "options": null,
+      "options": [],
       "accessibility": "public",
-      "value": ""
+      "value": "Adam Brown Jr"
     },
     {
       "label": "First Name",
       "section": "Personal Information",
       "type": "text",
       "required": true,
-      "options": null,
+      "options": [],
       "accessibility": "public",
-      "value": "Youdahe"
+      "value": "Adam"
     },
     {
       "label": "Middle Name",
       "section": "Personal Information",
       "type": "text",
       "required": false,
-      "options": null,
+      "options": [],
       "accessibility": "public",
       "value": ""
     },
@@ -32,89 +32,47 @@
       "section": "Personal Information",
       "type": "text",
       "required": true,
-      "options": null,
+      "options": [],
       "accessibility": "public",
-      "value": "Asfaw"
+      "value": "what's your last name Junior"
     },
     {
       "label": "Birth Date",
       "section": "Personal Information",
-      "type": "group",
-      "required": true,
-      "options": null,
-      "accessibility": "public",
-      "value": ""
-    },
-    {
-      "label": "Month",
-      "section": "Personal Information",
-      "type": "select",
-      "required": true,
-      "options": [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ],
-      "accessibility": "public",
-      "value": "April"
-    },
-    {
-      "label": "Day",
-      "section": "Personal Information",
-      "type": "number",
+      "type": "date",
       "required": true,
       "options": {
-        "min": 1,
-        "max": 31
+        "Month": [],
+        "Day": [],
+        "Year": []
       },
       "accessibility": "public",
-      "value": "29"
-    },
-    {
-      "label": "Year",
-      "section": "Personal Information",
-      "type": "number",
-      "required": true,
-      "options": {
-        "min": 1900,
-        "max": 2023
-      },
-      "accessibility": "public",
-      "value": "2006"
+      "value": "October 1st 2005"
     },
     {
       "label": "Current Address",
       "section": "Contact Information",
-      "type": "group",
+      "type": "text",
       "required": true,
-      "options": null,
+      "options": [],
       "accessibility": "public",
-      "value": ""
+      "value": "123 College Avenue"
     },
     {
       "label": "Street Address",
       "section": "Contact Information",
       "type": "text",
       "required": true,
-      "options": null,
+      "options": [],
       "accessibility": "public",
-      "value": "800 college ave"
+      "value": "none"
     },
     {
       "label": "Street Address Line 2",
       "section": "Contact Information",
       "type": "text",
       "required": false,
-      "options": null,
+      "options": [],
       "accessibility": "public",
       "value": ""
     },
@@ -123,7 +81,7 @@
       "section": "Contact Information",
       "type": "text",
       "required": true,
-      "options": null,
+      "options": [],
       "accessibility": "public",
       "value": "Saint Peter"
     },
@@ -132,9 +90,9 @@
       "section": "Contact Information",
       "type": "text",
       "required": true,
-      "options": null,
+      "options": [],
       "accessibility": "public",
-      "value": "MN"
+      "value": "Minnesota"
     }
   ]
 }
